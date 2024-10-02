@@ -12,5 +12,6 @@ import lombok.Setter;
 public class DeliverDTO {
     private String uid;
     private String name;
+    private double price;
 }
 

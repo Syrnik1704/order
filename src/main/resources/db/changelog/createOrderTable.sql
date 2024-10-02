@@ -1,8 +1,8 @@
-CREATE TABLE "order"
+CREATE TABLE orders
 (
     id        serial primary key,
-    uid      varchar not null,
-    "order"   varchar not null,
+    uid       varchar not null,
+    orders    varchar not null,
     status    varchar not null,
     firstName varchar not null,
     lastName  varchar not null,

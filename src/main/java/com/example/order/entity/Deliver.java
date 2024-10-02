@@ -19,5 +19,6 @@ public class Deliver {
     private long id;
     private String uid;
     private String name;
+    private double price;
 }
 

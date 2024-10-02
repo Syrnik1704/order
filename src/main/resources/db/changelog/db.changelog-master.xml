@@ -12,4 +12,8 @@
         <sqlFile path="createOrderTable.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="42" author="author">
+        <sqlFile path="createOrderItemsTable.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>

@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class OrderDTO {
     private String uid;
-    private String order;
+    private String orders;
     private Status status;
     private CustomerDetails customerDetails;
     private Address address;

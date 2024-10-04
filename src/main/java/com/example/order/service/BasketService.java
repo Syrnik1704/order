@@ -29,7 +29,7 @@ public class BasketService {
         return response.getBody();
     }
 
-    public void removeBasket(Cookie value, String uid) {
+    public void removeItemFromBasket(Cookie value, String uid) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cookie", value.getName() + "=" + value.getValue());
         restTemplate.exchange(BASKET_URL + "?uid=" + uid,

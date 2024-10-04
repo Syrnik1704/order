@@ -3,6 +3,7 @@ package com.example.order.controller;
 
 import com.example.order.entity.OrderDTO;
 import com.example.order.mediator.OrderMediator;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class OrderController {
     private final OrderMediator orderMediator;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> createOrder(@RequestBody OrderDTO order){
-        return orderMediator.createOrder(order);
+    public ResponseEntity<?> createOrder(@RequestBody OrderDTO order, HttpServletRequest request){
+        return orderMediator.createOrder(order, request);
     }
 }

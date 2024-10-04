@@ -32,6 +32,7 @@ public class Order {
     private String number;
     @Column(name = "postcode")
     private String postCode;
+    private String client;
     @ManyToOne
     @JoinColumn(name = "deliver")
     private Deliver deliver;

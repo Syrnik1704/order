@@ -17,5 +17,6 @@ public class OrderDTO {
     private Address address;
     private DeliverDTO deliver;
     private Items items;
+    private double summaryPrice;
 }
 

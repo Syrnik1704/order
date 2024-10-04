@@ -12,5 +12,6 @@ CREATE TABLE orders
     street    varchar not null,
     number    varchar not null,
     postCode  varchar not null,
+    client    varchar,
     deliver   integer REFERENCES "deliver" (id)
 )

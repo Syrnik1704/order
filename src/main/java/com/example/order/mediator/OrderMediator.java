@@ -21,7 +21,7 @@ public class OrderMediator {
         Order order = orderDTOToOrderMapper.mapToOrder(orderDTO);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(HttpHeaders.CONTENT_TYPE,"application/json");
-        return ResponseEntity.status(302).headers(httpHeaders).body(orderService.createOrder(order, request, response));
+        return ResponseEntity.status(200).headers(httpHeaders).body(orderService.createOrder(order, request, response));
     }
 }
 

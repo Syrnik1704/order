@@ -25,6 +25,7 @@ public class OrderService {
     private final BasketService basketService;
     private final ItemService itemService;
     private final PayUService payUService;
+    private final EmailService emailService;
     private final BasketItemDTOToOrderItemsMapper basketItemDTOToOrderItemsMapper;
 
 
@@ -49,6 +50,7 @@ public class OrderService {
         AtomicReference<String> result = new AtomicReference<>();
         Arrays.stream(request.getCookies()).filter(cookie -> cookie.getName().equals("basket")).findFirst().ifPresentOrElse(value -> {
             ListBasketItemDTO basket = basketService.getBasket(value);
+            if (basket.getBasketProducts().isEmpty()) throw new RuntimeException();
             List<OrderItems> items = new ArrayList<>();
             basket.getBasketProducts().forEach(item -> {
                 OrderItems orderItems = basketItemDTOToOrderItemsMapper.mapToOrderItems(item);
@@ -60,6 +62,7 @@ public class OrderService {
             result.set(payUService.createOrder(finalOrder, items));
             value.setMaxAge(0);
             response.addCookie(value);
+            emailService.sendOrderMail(order.getEmail(), order.getUid());
         }, () -> {
             throw new RuntimeException();
         });
